@@ -5,4 +5,4 @@ type Todo = {
 };
 
 type ToggleTodo = (id: number) => void;
-type AddTodo = (text: String) => void;
+type AddTodo = (text: string) => void;
