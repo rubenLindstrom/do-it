@@ -18,6 +18,17 @@ const App: React.FC = () => {
 		);
 	};
 
+	const addTodo: AddTodo = (text) => {
+		setTodos((prevState) => [
+			...prevState,
+			{
+				text,
+				complete: false,
+				id: prevState[prevState.length - 1].id + 1
+			}
+		]);
+	};
+
 	return <TodoList todos={todos} toggleTodo={toggleTodo} />;
 };
 
