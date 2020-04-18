@@ -1,11 +1,11 @@
 import React from "react";
 
-interface TodoItemProps {
+export interface Props {
 	todo: Todo;
 	toggleTodo: ToggleTodo;
 }
 
-const todoItem: React.FC<TodoItemProps> = ({
+const todoItem: React.FC<Props> = ({
 	todo: { text, complete, id },
 	toggleTodo
 }) => {

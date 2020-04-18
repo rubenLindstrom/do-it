@@ -1,10 +1,10 @@
 import React, { useRef } from "react";
 
-interface AddTodoFormProps {
+export interface Props {
 	addTodo: AddTodo;
 }
 
-const AddTodoForm: React.FC<AddTodoFormProps> = ({ addTodo }) => {
+const AddTodo: React.FC<Props> = ({ addTodo }) => {
 	const todoRef = useRef<HTMLInputElement>(null);
 
 	const handleSubmit = (e: React.FormEvent<HTMLButtonElement>) => {
@@ -29,4 +29,4 @@ const AddTodoForm: React.FC<AddTodoFormProps> = ({ addTodo }) => {
 	);
 };
 
-export default AddTodoForm;
+export default AddTodo;
