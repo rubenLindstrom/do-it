@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./app.css";
+import TodoItem from "./components/todoItem";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const initialTodos: Array<Todo> = [
+	{ text: "Walk the dog", complete: true, id: 0 },
+	{ text: "Write app", complete: false, id: 1 }
+];
+
+const App: React.FC = () => {
+	const [todos, setTodos] = useState(initialTodos);
+
+	const toggleTodo: ToggleTodo = (id) => {
+		setTodos((prevState) =>
+			prevState.map((todo) =>
+				todo.id === id ? { ...todo, complete: !todo.complete } : todo
+			)
+		);
+	};
+
+	return (
+		<>
+			{todos.map((todo) => (
+				<TodoItem todo={todo} key={todo.id} toggleTodo={toggleTodo} />
+			))}
+		</>
+	);
+};
 
 export default App;
