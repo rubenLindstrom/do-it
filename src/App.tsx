@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./app.css";
-import TodoItem from "./components/todoItem";
+import TodoList from "./components/todoList";
 
 const initialTodos: Array<Todo> = [
 	{ text: "Walk the dog", complete: true, id: 0 },
@@ -18,13 +18,7 @@ const App: React.FC = () => {
 		);
 	};
 
-	return (
-		<>
-			{todos.map((todo) => (
-				<TodoItem todo={todo} key={todo.id} toggleTodo={toggleTodo} />
-			))}
-		</>
-	);
+	return <TodoList todos={todos} toggleTodo={toggleTodo} />;
 };
 
 export default App;
